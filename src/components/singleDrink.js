@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SingleDrink = ({data})=>{
     let id = localStorage.getItem('drink')
     console.log(id);
@@ -17,19 +19,19 @@ const SingleDrink = ({data})=>{
     return (
  <section className="singleDrink-container">
  <div className="title">
- <button className="btn2">Back Home</button>
+ <Link to='/home'><button className="btn2">Back Home</button></Link>
  <h1>{name}</h1></div>
  <div className=" singleDrink-article">
  <div className="singleDrink-img">
  <img src={img} alt={name}/>
  </div>
  <div className="singleDrink-info">
- <p><span className="name">Name:</span>{name}</p>
- <p><span className="category">Category:</span>{cat}</p>
- <p><span className="type">Info:</span>{type}</p>
- <p><span className="glass">Glass:</span>{glass}</p>
- <p><span className="instructions">Instructions:</span>{instruct}</p>
- <p><span className="ingredients">Ingredients:</span>{ingredients.map((item,index)=>{
+ <p><span className=" span name">Name:</span>{name}</p>
+ <p><span className=" span category">Category:</span>{cat}</p>
+ <p><span className=" span type">Info:</span>{type}</p>
+ <p><span className=" span glass">Glass:</span>{glass}</p>
+ <p><span className=" span instructions">Instructions:</span>{instruct}</p>
+ <p><span className=" span ingredients">Ingredients:</span>{ingredients.map((item,index)=>{
      console.log(item);
      if(!item){
          return 

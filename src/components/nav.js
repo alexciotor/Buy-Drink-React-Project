@@ -9,7 +9,8 @@ const Nav = ()=>{
    
     return  <nav   className="nav-bar">
     <div className="drink-logo">
-    <FaCocktail/>
+    <span className="cocktailLogo">The<span>Cocktail</span>Db</span>
+    <span className="logo"><FaCocktail/></span>
     </div>
     <div className="menu-bar">
     <ul className="nav-ul">

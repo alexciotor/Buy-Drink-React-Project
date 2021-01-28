@@ -79,8 +79,8 @@
         border: none;
         background-color: #476a2e;
         color: white;
-        padding: 0.25rem 0.4rem;
-        border-radius: 8px;
+        padding: 0.35rem 0.5rem;
+        border-radius: 6px;
       }
     }
     img {
@@ -95,9 +95,7 @@
 .article:hover {
   box-shadow: 5px 9px 3px 0 rgba(12, 8, 8, 0.6);
 }
-.singleDrink-main-content {
-  background-color: red;
-}
+
 .button-container {
   background-color: blue;
 }
@@ -110,4 +108,135 @@
 .spans {
   display: inline-block;
   margin-left: 2vw;
+}
+// single Drink Page
+.singleDrink-container {
+  height: 100vh;
+}
+// main title
+.title {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-top: 16vh;
+}
+// back home btn
+.btn2 {
+  padding: 0.45rem 0.8rem;
+  margin-bottom: 4vh;
+  background-color: #476a2e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+// single drink container
+
+.singleDrink-article {
+  width: 80%;
+  justify-content: center;
+  padding-top: 10vh;
+  margin: auto;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: 300px 500px;
+  grid-gap: 50px;
+
+  grid-template-rows: 350px;
+  .singleDrink-img {
+    width: 100%;
+    img {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .singleDrink-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    p {
+      font-weight: bold;
+    }
+  }
+  .span {
+    background-color: #d4e6a5;
+    margin-right: 2vw;
+    font-weight: 500;
+  }
+}
+
+// about page
+
+.about-main-content {
+  width: 70%;
+  margin: auto;
+  margin-top: 18vh;
+  text-align: left;
+  h1 {
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 11vh;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  p {
+    line-height: 2rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+}
+.contact-main-content {
+  height: 500vh;
+}
+.contact-title {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  margin-top: 5vh;
+}
+.contact-logo {
+  font-size: 2rem;
+  color: #476a2e;
+}
+.contact-cocktailLogo {
+  display: block;
+  font-size: 2.5rem;
+  .cok {
+    color: #476a2e;
+  }
+}
+.contact-list {
+  justify-content: space-between;
+  display: flex;
+  list-style-type: none;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  padding: 1vh;
+  .list {
+    font-weight: 300;
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .list:hover {
+    padding: 0.1rem 0.2rem;
+    background-color: #476a2e;
+    color: white;
+  }
+}
+.second-title {
+  margin-top: 4vh;
+  text-align: center;
+  font-size: 1rem;
+  h5 {
+    font-size: 1.1rem;
+    color: #476a2e;
+  }
 }
