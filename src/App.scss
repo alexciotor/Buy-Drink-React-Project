@@ -55,7 +55,9 @@
       height: 30%;
       background-color: white;
       padding: 0.5rem;
-
+      position: relative;
+      transition: all 0.3s;
+      overflow: hidden;
       h4 {
         margin-bottom: 1vh;
         font-size: 1.5rem;
@@ -231,6 +233,9 @@
     color: white;
   }
 }
+.contact-menu-bar {
+  height: 2vh;
+}
 .second-title {
   margin-top: 4vh;
   text-align: center;
@@ -239,4 +244,27 @@
     font-size: 1.1rem;
     color: #476a2e;
   }
+}
+.price {
+  position: absolute;
+  top: 0%;
+  right: -1000px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+}
+.article:hover {
+  .price {
+    transition: all 0.5s;
+    right: 10px;
+  }
+}
+.para-btn {
+  width: 2vw;
+}
+.para-btn:hover {
+  color: #4f971c;
+  cursor: pointer;
 }

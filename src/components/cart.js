@@ -1,5 +1,9 @@
-const Cart = ()=>{
-    return <h1>this is my cart page</h1>
+
+const Cart = ({refContainer})=>{
+ console.log(refContainer);
+    return <h1>he</h1>
+   
+   
 }
 
 export default Cart

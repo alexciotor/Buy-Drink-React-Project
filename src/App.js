@@ -8,9 +8,23 @@ import Cart from './components/cart'
 import './App.scss';
 import Nav from './components/nav'
 import SingleDrink from './components/singleDrink'
+ import {useRef} from 'react'
 const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a'
+
+
+const initialInfo = {
+
+}
+
+const reducer =  (info,action)=>{
+
+}
+
 function App() {
+   const [state, setState] = useState([])
+     let refContainer = useRef (null)
    const [data, setData] = useState([])
+   const [info, dispatch] = useReducer(reducer, initialInfo)
    const [loading,setLoading ] = useState(false)
    let idd = data.map(item=>{
      const {idDrink:idd} = item
@@ -32,7 +46,7 @@ getData()
    <Nav/>
    <Switch>
    <Route exact path='/home'>
-   <Home data = {data} idd={idd}/>
+   <Home data = {data} idd={idd} refContainer = {refContainer} state= {state} setState = {setState}/>
    </Route>
    <Route path='/about'>
    <About/>
@@ -41,7 +55,7 @@ getData()
    <Contact/>
    </Route>
     <Route path='/cart'>
-   <Cart/>
+   <Cart refContainer= {refContainer}/>
    </Route>
     <Route path='/details'>
    <SingleDrink data={data}/>
