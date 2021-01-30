@@ -21,12 +21,16 @@ const reducer =  (info,action)=>{
 }
 
 function App() {
- 
+  const [total,setTotal ] = useState(0) 
    const [state, setState] = useState([])
      let refContainer = useRef ({})
    const [data, setData] = useState([])
    const [info, dispatch] = useReducer(reducer, initialInfo)
    const [loading,setLoading ] = useState(false)
+   const [list,setList] =useState([])
+
+ 
+ 
    let idd = data.map(item=>{
      const {idDrink:idd} = item
      return idd
@@ -45,10 +49,10 @@ getData()
 },[])
   return (
     <Router>   
-   <Nav/>
+   <Nav list={list} />
    <Switch>
    <Route exact path='/home'>
-   <Home data = {data} idd={idd}  state= {state} setState = {setState}/>
+   <Home setTotal = {setTotal} data = {data} idd={idd}  state= {state} setState = {setState} setList={setList} list={list}/>
    </Route>
    <Route path='/about'>
    <About/>
@@ -57,7 +61,7 @@ getData()
    <Contact/>
    </Route>
     <Route path='/cart'>
-   <Cart data={data} />
+   <Cart total={total} data={data} list={list} />
    </Route>
     <Route path='/details'>
    <SingleDrink data={data}/>

@@ -268,3 +268,19 @@
   color: #4f971c;
   cursor: pointer;
 }
+
+.cart-article {
+  width: 50%;
+  margin: auto;
+  display: flex;
+}
+.img-container {
+  background-color: red;
+  width: 100px;
+  img {
+    width: 100%;
+  }
+  .content-container {
+    color: blue;
+  }
+}

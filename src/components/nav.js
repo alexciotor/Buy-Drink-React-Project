@@ -6,7 +6,7 @@ import {FaCocktail} from 'react-icons/fa'
 import Contact from './contact'
  
 
-const Nav = ()=>{
+const Nav = ({list})=>{
  
     return  <nav   className="nav-bar">
     <div className="drink-logo">
@@ -24,7 +24,7 @@ const Nav = ()=>{
         
        
     })}
-     <span className="cart number">0</span>
+     <span className="cart number">{list.length}</span>
      </ul>
     </div>
     </nav>

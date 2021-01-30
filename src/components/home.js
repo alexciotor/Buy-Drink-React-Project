@@ -4,16 +4,9 @@ import React from 'react'
 import {useState} from 'react'
 import { FaRoad } from 'react-icons/fa'
  
-const Home = ({data,idd })=>{
- const [list,setList] =useState([])
- data.forEach(item=>{
-   list.forEach(item2=>{
-     if(item.idDrink == item2){
-       console.log(item);
-     }
-   })
- })
-    console.log(list);
+const Home = ({data,idd ,list,setList,total,setTotal})=>{
+
+ console.log(total);
   const orders = localStorage.getItem('orders')
     return <>
     <div key={idd} className="main-content">
@@ -41,9 +34,13 @@ const Home = ({data,idd })=>{
        <span onClick={()=>{
       setList((list)=>{
         return [...list, id]
-      })
-         
- 
+      })     
+ setTotal((total)=>{
+      let price = Number(id)/1000;
+        price = price.toFixed(2)
+        
+  return total+=price
+ })
        }}  className='para para-btn' ><CgAddR/></span>
        </div>
         </footer>
