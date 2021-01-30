@@ -4,9 +4,10 @@
 import data from '../modules/data'
 import {FaCocktail} from 'react-icons/fa'
 import Contact from './contact'
+ 
 
 const Nav = ()=>{
-   
+ 
     return  <nav   className="nav-bar">
     <div className="drink-logo">
     <span className="cocktailLogo">The<span>Cocktail</span>Db</span>
@@ -23,7 +24,7 @@ const Nav = ()=>{
         
        
     })}
-     
+     <span className="cart number">0</span>
      </ul>
     </div>
     </nav>

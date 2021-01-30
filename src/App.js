@@ -21,8 +21,9 @@ const reducer =  (info,action)=>{
 }
 
 function App() {
+ 
    const [state, setState] = useState([])
-     let refContainer = useRef (null)
+     let refContainer = useRef ({})
    const [data, setData] = useState([])
    const [info, dispatch] = useReducer(reducer, initialInfo)
    const [loading,setLoading ] = useState(false)
@@ -30,7 +31,8 @@ function App() {
      const {idDrink:idd} = item
      return idd
    })
-const getData = async()=>{
+ 
+   const getData = async()=>{
   setLoading(true)
   const response = await fetch(URL)
   const data = await response.json()
@@ -46,7 +48,7 @@ getData()
    <Nav/>
    <Switch>
    <Route exact path='/home'>
-   <Home data = {data} idd={idd} refContainer = {refContainer} state= {state} setState = {setState}/>
+   <Home data = {data} idd={idd}  state= {state} setState = {setState}/>
    </Route>
    <Route path='/about'>
    <About/>
@@ -55,7 +57,7 @@ getData()
    <Contact/>
    </Route>
     <Route path='/cart'>
-   <Cart refContainer= {refContainer}/>
+   <Cart data={data} />
    </Route>
     <Route path='/details'>
    <SingleDrink data={data}/>

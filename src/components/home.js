@@ -3,21 +3,28 @@ import React from 'react'
  import {CgAddR, CgLogOff} from 'react-icons/cg'
 import {useState} from 'react'
 import { FaRoad } from 'react-icons/fa'
-const Home = ({data,idd,refContainer})=>{
-  console.log(Number(refContainer.current.innerHTML));
  
- const getPrice= (id) =>{
-     let price = Number(id) /1000;
-     return price.toFixed(2) 
- }
- 
+const Home = ({data,idd })=>{
+ const [list,setList] =useState([])
+ data.forEach(item=>{
+   list.forEach(item2=>{
+     if(item.idDrink == item2){
+       console.log(item);
+     }
+   })
+ })
+    console.log(list);
+  const orders = localStorage.getItem('orders')
     return <>
     <div key={idd} className="main-content">
-    {data.map(item=>{
+    {data.map((item,index)=>{
         const{strDrink:name, strCategory:cat,strAlcoholic:type,strDrinkThumb:img,idDrink:id} = item
+        let price = Number(id)/1000;
+        price = price.toFixed(2)
+        
         return( 
            
-        <article key={id}   className="article">
+        <article key={id}    className="article">
         <header className="header">
         <img src={img} alt={name}/>
         </header>
@@ -30,8 +37,14 @@ const Home = ({data,idd,refContainer})=>{
     
        }}>details</button></Link> 
        <div className="price">
-       <span ref ={refContainer} className='para para-price' > {getPrice(id)}  </span>
-       <span  className='para para-btn' ><CgAddR/></span>
+       <span  className='para para-price' > {price} $ </span>
+       <span onClick={()=>{
+      setList((list)=>{
+        return [...list, id]
+      })
+         
+ 
+       }}  className='para para-btn' ><CgAddR/></span>
        </div>
         </footer>
         </article>
@@ -40,6 +53,8 @@ const Home = ({data,idd,refContainer})=>{
     })}
     </div>
     </>
+ 
 }
 
 export default Home
+ 
