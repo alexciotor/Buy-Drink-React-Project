@@ -4,7 +4,7 @@ import React from 'react'
 import {useState} from 'react'
 import { FaRoad } from 'react-icons/fa'
  
-const Home = ({data,idd ,list,setList,total,setTotal})=>{
+const Home = ({data,idd ,list,setList,total,setTotal,setDisplay})=>{
 
  console.log(total);
   const orders = localStorage.getItem('orders')
@@ -36,11 +36,10 @@ const Home = ({data,idd ,list,setList,total,setTotal})=>{
         return [...list, id]
       })     
  setTotal((total)=>{
-      let price = Number(id)/1000;
-        price = price.toFixed(2)
-        
-  return total+=price
+  return [...total, price]
+
  })
+ setDisplay(true)
        }}  className='para para-btn' ><CgAddR/></span>
        </div>
         </footer>

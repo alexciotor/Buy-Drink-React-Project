@@ -19,12 +19,15 @@ const initialInfo = {
 const reducer =  (info,action)=>{
 
 }
-
+let data2 = []
 function App() {
-  const [total,setTotal ] = useState(0) 
+    const[display, setDisplay] =useState(false)
+  const [total,setTotal ] = useState([]) 
+  console.log(total);
    const [state, setState] = useState([])
      let refContainer = useRef ({})
    const [data, setData] = useState([])
+   data2 = data
    const [info, dispatch] = useReducer(reducer, initialInfo)
    const [loading,setLoading ] = useState(false)
    const [list,setList] =useState([])
@@ -47,12 +50,12 @@ function App() {
 useEffect(()=>{
 getData()
 },[])
-  return (
-    <Router>   
+  return  <Router>   
    <Nav list={list} />
    <Switch>
-   <Route exact path='/home'>
-   <Home setTotal = {setTotal} data = {data} idd={idd}  state= {state} setState = {setState} setList={setList} list={list}/>
+   
+   <Route exact path='/Home'>
+   <Home setDisplay={setDisplay} setTotal = {setTotal} data = {data} idd={idd}  state= {state} setState = {setState} setList={setList} list={list}/>
    </Route>
    <Route path='/about'>
    <About/>
@@ -61,7 +64,7 @@ getData()
    <Contact/>
    </Route>
     <Route path='/cart'>
-   <Cart total={total} data={data} list={list} />
+   <Cart setData ={setData}display={display} total={total} data={data} list={list} />
    </Route>
     <Route path='/details'>
    <SingleDrink data={data}/>
@@ -74,7 +77,8 @@ getData()
      </Router>
 
   
-  );
+  ;
 }
 
 export default App;
+ export {data2}
