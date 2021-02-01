@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-const SingleDrink = ({data})=>{
+const SingleDrink = ({state})=>{
     let id = localStorage.getItem('drink')
-    console.log(id);
-    let item = data.filter(item=>{
+   
+    let item = state.items.filter(item=>{
         if(item.idDrink===id){
             return item
         }

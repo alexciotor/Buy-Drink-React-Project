@@ -13,49 +13,70 @@ const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a'
 
 
 const initialInfo = {
-
+loading:false,
+items:[],
+price:function(id){
+id =  Number(id)/1000
+  return parseFloat((id).toFixed(2))
+},
+amount: price,
 }
 
-const reducer =  (info,action)=>{
 
+
+const reducer =  (state,action)=>{
+if(action.type==='DISPLAY'){
+return {...state, items: action.payload}
 }
-let data2 = []
+if(action.type='INCREMENT'){
+  let cartItems = state.items.map(item=>{
+    if(item.id=== action.payload){
+      console.log(action.payload);
+      return {...item, amount:item.price+1 }
+    }
+    return item
+  })
+  return{...state, items:cartItems}
+}
+}
+  
 function App() {
     const[display, setDisplay] =useState(false)
-  const [total,setTotal ] = useState([]) 
-  console.log(total);
-   const [state, setState] = useState([])
-     let refContainer = useRef ({})
-   const [data, setData] = useState([])
-   data2 = data
-   const [info, dispatch] = useReducer(reducer, initialInfo)
-   const [loading,setLoading ] = useState(false)
+    const [total,setTotal ] = useState([]) 
+    const [data, setData] = useState([])
+    const [state, dispatch] = useReducer(reducer, initialInfo)
+    console.log(state.items);
+    const [loading,setLoading ] = useState(false)
    const [list,setList] =useState([])
 
  
  
-   let idd = data.map(item=>{
-     const {idDrink:idd} = item
-     return idd
-   })
+  
  
    const getData = async()=>{
   setLoading(true)
   const response = await fetch(URL)
   const data = await response.json()
- setData(data.drinks)
- setLoading(false)
+
+dispatch({type:'DISPLAY',payload:data.drinks})
 }
  
 useEffect(()=>{
 getData()
 },[])
+
+const increment=(id)=>{
+  dispatch({type:'INCREMENT', payload:id})
+}
+
+
+
   return  <Router>   
    <Nav list={list} />
    <Switch>
    
    <Route exact path='/Home'>
-   <Home setDisplay={setDisplay} setTotal = {setTotal} data = {data} idd={idd}  state= {state} setState = {setState} setList={setList} list={list}/>
+   <Home setDisplay={setDisplay} setTotal = {setTotal} state = {state}  setList={setList}   list={list}/>
    </Route>
    <Route path='/about'>
    <About/>
@@ -64,10 +85,10 @@ getData()
    <Contact/>
    </Route>
     <Route path='/cart'>
-   <Cart setData ={setData}display={display} total={total} data={data} list={list} />
+   <Cart increment={increment} setData ={setData} display={display} total={total} data={data} list={list} state={state} />
    </Route>
     <Route path='/details'>
-   <SingleDrink data={data}/>
+   <SingleDrink state={state}/>
    </Route>
    <Route path='*'>
    <Error/>
@@ -81,4 +102,4 @@ getData()
 }
 
 export default App;
- export {data2}
+ 

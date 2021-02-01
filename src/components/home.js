@@ -4,16 +4,13 @@ import React from 'react'
 import {useState} from 'react'
 import { FaRoad } from 'react-icons/fa'
  
-const Home = ({data,idd ,list,setList,total,setTotal,setDisplay})=>{
-
- console.log(total);
-  const orders = localStorage.getItem('orders')
+const Home = ({ state,list,setList,total,setTotal,setDisplay})=>{
+ let idd = new Date().getTime()
     return <>
     <div key={idd} className="main-content">
-    {data.map((item,index)=>{
+    {state.items.map((item,index)=>{
         const{strDrink:name, strCategory:cat,strAlcoholic:type,strDrinkThumb:img,idDrink:id} = item
-        let price = Number(id)/1000;
-        price = price.toFixed(2)
+ 
         
         return( 
            
@@ -30,15 +27,13 @@ const Home = ({data,idd ,list,setList,total,setTotal,setDisplay})=>{
     
        }}>details</button></Link> 
        <div className="price">
-       <span  className='para para-price' > {price} $ </span>
+       <span  className='para para-price' > {state.price(id)} $ </span>
        <span onClick={()=>{
       setList((list)=>{
         return [...list, id]
       })     
- setTotal((total)=>{
-  return [...total, price]
-
- })
+ 
+ 
  setDisplay(true)
        }}  className='para para-btn' ><CgAddR/></span>
        </div>

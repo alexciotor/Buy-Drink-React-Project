@@ -5,9 +5,7 @@ import { FaRProject } from 'react-icons/fa'
  import Empty from '../components/empty'
  
  
-const Cart = ({list,data,total,display,setData})=>{
- const [prices,setPrice] =useState(0)
- const [value,setValue]=useState({total:0,amount:1})
+const Cart = ({increment,state,list,total,display,setData})=>{
  
    let sum=0
   if(total){
@@ -18,17 +16,19 @@ sum = total.map(item=>{
  
   }
    let lastTotal = sum.reduce((total,item)=>total+item,0)
-   console.log(lastTotal);
+ 
  let x = new Date().getTime()
  let cartItems =[]
- data.forEach(item=>{
+ state.items.forEach(item=>{
    list.forEach(item2=>{
      if(item.idDrink == item2){
+      
 cartItems.push(item)
      }
    })
  })
- console.log(cartItems);
+ 
+ 
  return ( <section>
      <div className='cart-container' >
      {cartItems.map(item=>{
@@ -52,7 +52,10 @@ return  <div className="article-content">
  </div>
  </div>
  
-
+ <button onClick={()=>{
+   console.log(state.amount);
+  increment(id)
+ }}>incremenet</button>
  </article>
 </div>
  
@@ -61,9 +64,13 @@ return  <div className="article-content">
 
  </div>
   <div className="total-container">
- <h4>{display ? `total : ${parseFloat(lastTotal)} $` : <Empty/> } </h4>
+ <h4>{display ? `total : ${state.amount} $` : <Empty/> } </h4>
   {display && <button className="cart-bt">Submit Order</button>}
  </div>
+
+ {display && <button onClick={()=>{
+ 
+ }} > clear cart</button> }
  </section>
 )
 }
