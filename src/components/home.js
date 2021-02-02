@@ -34,6 +34,9 @@ const Home = ({ state,list,setList,total,setTotal,setDisplay})=>{
       })     
  
  
+ setTotal(total=>{
+   return [...total,state.price(id)]
+ })
  setDisplay(true)
        }}  className='para para-btn' ><CgAddR/></span>
        </div>

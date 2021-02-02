@@ -52,10 +52,7 @@ return  <div className="article-content">
  </div>
  </div>
  
- <button onClick={()=>{
-   console.log(state.amount);
-  increment(id)
- }}>incremenet</button>
+ 
  </article>
 </div>
  
@@ -64,13 +61,11 @@ return  <div className="article-content">
 
  </div>
   <div className="total-container">
- <h4>{display ? `total : ${state.amount} $` : <Empty/> } </h4>
+ <h4>{display ? `total : ${lastTotal} $` : <Empty/> } </h4>
   {display && <button className="cart-bt">Submit Order</button>}
  </div>
 
- {display && <button onClick={()=>{
  
- }} > clear cart</button> }
  </section>
 )
 }

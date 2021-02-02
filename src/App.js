@@ -15,11 +15,11 @@ const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a'
 const initialInfo = {
 loading:false,
 items:[],
+amount:1,
 price:function(id){
 id =  Number(id)/1000
   return parseFloat((id).toFixed(2))
-},
-amount: price,
+}
 }
 
 
@@ -29,23 +29,15 @@ if(action.type==='DISPLAY'){
 return {...state, items: action.payload}
 }
 if(action.type='INCREMENT'){
-  let cartItems = state.items.map(item=>{
-    if(item.id=== action.payload){
-      console.log(action.payload);
-      return {...item, amount:item.price+1 }
-    }
-    return item
-  })
-  return{...state, items:cartItems}
+ return {...state, amount:state.amount + 1}
 }
 }
-  
 function App() {
     const[display, setDisplay] =useState(false)
     const [total,setTotal ] = useState([]) 
     const [data, setData] = useState([])
     const [state, dispatch] = useReducer(reducer, initialInfo)
-    console.log(state.items);
+
     const [loading,setLoading ] = useState(false)
    const [list,setList] =useState([])
 
