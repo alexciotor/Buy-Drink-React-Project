@@ -19,7 +19,7 @@ const SingleDrink = ({state})=>{
     return (
  <section className="singleDrink-container">
  <div className="title">
- <Link to='/home'><button className="btn2">Back Home</button></Link>
+ <Link to='/'><button className="btn2">Back Home</button></Link>
  <h1>{name}</h1></div>
  <div className=" singleDrink-article">
  <div className="singleDrink-img">
