@@ -61,7 +61,7 @@ return  <div className="article-content">
 
  </div>
   <div className="total-container">
- <h4>{display ? `total : ${lastTotal} $` : <Empty/> } </h4>
+ <h4>{display ? `total : ${lastTotal.toFixed(2)} $` : <Empty/> } </h4>
   {display && <button className="cart-bt">Submit Order</button>}
  </div>
 

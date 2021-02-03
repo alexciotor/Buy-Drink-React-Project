@@ -7,20 +7,23 @@ import Contact from './contact'
  
 
 const Nav = ({list})=>{
- 
-    return  <nav   className="nav-bar">
+ let id = new Date().getTime()
+    return  <nav key={id}  className="nav-bar">
     <div className="drink-logo">
-    <span className="cocktailLogo">The<span>Cocktail</span>Db</span>
+    <span className="cocktailLogo">The<span className='ctail' >Cocktail</span>Db</span>
     <span className="logo"><FaCocktail/></span>
     </div>
     <div className="menu-bar">
     <ul className="nav-ul">
+     <li className='list' > <Link to='/'>Home</Link></li>
     {data.map(item=>{
         const {name }= item
-        return <li className="list">
+        return  <li className="list">
+        
            <Link to={`/${name}`}>{name}</Link>
         
         </li>
+        
         
        
     })}

@@ -1,8 +1,5 @@
  export default [
-    {
-    name:'Home',
-    type:0
-},
+  
 {
     name: 'About',
     type:0

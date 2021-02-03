@@ -66,10 +66,11 @@ const increment=(id)=>{
   return  <Router>   
    <Nav list={list} />
    <Switch>
-   
-   <Route exact path='/Home'>
+       <Route exact path='/'>
    <Home setDisplay={setDisplay} setTotal = {setTotal} state = {state}  setList={setList}   list={list}/>
    </Route>
+
+  
    <Route path='/about'>
    <About/>
    </Route>

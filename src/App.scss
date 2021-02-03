@@ -12,6 +12,23 @@
     padding: 2vw;
     font-size: 3vh;
   }
+  .cart {
+    position: absolute;
+    right: 15px;
+    display: inline-block;
+    color: white;
+    border-radius: 100%;
+    font-size: 0.8rem;
+    padding: 2px 4px 3px 5px;
+    background-color: #476a2e;
+  }
+  .ctail {
+    color: #476a2e;
+  }
+  .logo {
+    color: #476a2e;
+    font-size: 1.1rem;
+  }
   .nav-ul {
     display: flex;
     flex-direction: row;
@@ -314,4 +331,12 @@ p {
 }
 .left {
   display: flex;
+}
+.cart-bt {
+  background-color: #476a2e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 2vh;
 }
