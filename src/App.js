@@ -13,16 +13,28 @@ import SingleDrink from './components/singleDrink'
 const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a'
 const initialInfo = {
 loading:false,
-items:drinks,
+items:[],
 amount:1,
+ 
 }
 const reducer =  (state,action)=>{
+    if(action.type=== 'DATA'){
+        return {...state, items:action.payload}
+    }
 }
 function App() {
 const[display, setDisplay] =useState(false)
 const [state, dispatch] = useReducer(reducer, initialInfo)
 const [cartItems, setCartItems] = useState([])
-console.log(cartItems);
+ const getData = async()=>{
+     const response = await  fetch(URL)
+     const data = await response.json()
+     dispatch({type:"DATA",payload:data.drinks})
+ }
+
+ useEffect(()=>{
+     getData()
+ },[])
 return  <Router>   
 <Nav/>
 <Switch>
@@ -36,7 +48,7 @@ return  <Router>
 <Contact/>
 </Route>
 <Route path='/cart'>
-<Cart cartItems={cartItems} state={state}  display={display}      />
+<Cart cartItems={cartItems} state={state}  display={display}/>
 </Route>
 <Route path='/details'>
 <SingleDrink state={state}/>

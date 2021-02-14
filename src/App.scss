@@ -25,10 +25,11 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    position: relative;
 
     .list {
       list-style: none;
-      padding: 2vw;
+      padding: 1vw;
       text-transform: capitalize;
       font-weight: 400;
       letter-spacing: 2px;
@@ -425,5 +426,44 @@ p {
     margin: auto;
     width: 80%;
     font-size: 10px;
+  }
+  .singleDrink-container {
+  }
+  .title {
+    margin-top: 5vh;
+  }
+  .singleDrink-article {
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 140px 160px;
+    grid-gap: 20px;
+    padding-top: 2vh;
+
+    .singleDrink-img {
+      width: 150px;
+      height: 240px;
+      img {
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .singleDrink-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 240px;
+      p {
+        font-weight: bold;
+      }
+    }
+    .span {
+      background-color: #d4e6a5;
+      margin-right: 2vw;
+      font-weight: 500;
+    }
   }
 }
