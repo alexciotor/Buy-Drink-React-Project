@@ -12,16 +12,7 @@
     padding: 2vw;
     font-size: 3vh;
   }
-  .cart {
-    position: absolute;
-    right: 15px;
-    display: inline-block;
-    color: white;
-    border-radius: 100%;
-    font-size: 0.8rem;
-    padding: 2px 4px 3px 5px;
-    background-color: #476a2e;
-  }
+
   .ctail {
     color: #476a2e;
   }
@@ -51,6 +42,16 @@
     color: #222;
   }
 }
+.cart {
+  position: absolute;
+  right: 15px;
+  display: inline-block;
+  color: white;
+  border-radius: 100%;
+  font-size: 0.8rem;
+  padding: 2px 4px 3px 5px;
+  background-color: #476a2e;
+}
 .main-content {
   display: grid;
   grid-row-gap: 2vh;
@@ -59,56 +60,58 @@
   justify-content: center;
   margin-top: 5%;
   padding-bottom: 5%;
-  .article {
-    width: 100%;
-    height: 25rem;
-    box-shadow: 2px 5px 3px 0 rgba(0, 0, 0, 0.5);
-    transition: all 0.4s;
 
-    .header {
-      height: 70%;
-    }
-    .footer {
-      height: 30%;
-      background-color: white;
-      padding: 0.5rem;
-      position: relative;
-      transition: all 0.3s;
-      overflow: hidden;
-      h4 {
-        margin-bottom: 1vh;
-        font-size: 1.5rem;
-        letter-spacing: 5px;
-        font-weight: 700;
-      }
-      h3 {
-        font-size: 1.1rem;
-        font-weight: 300;
-        letter-spacing: 8px;
-      }
-      p {
-        padding: 1vh 1vh 1vh 0;
-        font-size: 0.8rem;
-        font-weight: 200;
-        color: #afafaf;
-      }
-      .btn {
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        border: none;
-        background-color: #476a2e;
-        color: white;
-        padding: 0.35rem 0.5rem;
-        border-radius: 6px;
-      }
-    }
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      border-top-left-radius: 0.25rem;
-      border-top-right-radius: 0.25rem;
-    }
+  .header {
+    height: 70%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+}
+.article {
+  width: 100%;
+  height: 25rem;
+  box-shadow: 2px 5px 3px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.4s;
+}
+.footer {
+  height: 30%;
+  background-color: white;
+  padding: 0.5rem;
+  position: relative;
+  transition: all 0.3s;
+  overflow: hidden;
+
+  h4 {
+    margin-bottom: 1vh;
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+  }
+  p {
+    padding: 1vh 1vh 1vh 0;
+    font-size: 0.8rem;
+    font-weight: 200;
+    color: #afafaf;
+  }
+  .btn {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border: none;
+    background-color: #476a2e;
+    color: white;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
   }
 }
 .article:hover {
@@ -290,8 +293,7 @@
   height: 15vh;
   margin-bottom: 5vh;
 }
-.article-content {
-}
+
 .cart-article {
   width: 20%;
   margin: auto;
@@ -339,4 +341,89 @@ p {
   border-radius: 10px;
   padding: 10px;
   margin-top: 2vh;
+}
+@media only screen and (min-width: 761px) and (max-width: 1062px) {
+  .main-content {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+@media only screen and (min-width: 482px) and (max-width: 760px) {
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    .article {
+      position: relative;
+      width: 60%;
+      margin: auto;
+      margin-top: 2vh;
+      height: 17.5rem;
+    }
+  }
+  .cart {
+    font-size: 15px;
+    background-color: #476a2e;
+    position: absolute;
+    right: 0;
+    top: -2px;
+  }
+}
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    .article {
+      position: relative;
+      width: 80%;
+      margin: auto;
+      margin-top: 2vh;
+      height: 17.5rem;
+    }
+    .footer {
+      h4 {
+        font-size: 0.8rem;
+      }
+      h3 {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+      }
+      p {
+        font-size: 0.5rem;
+      }
+      .btn {
+        padding: 0px;
+        letter-spacing: 4px;
+        font-size: 10px;
+        padding: 5px 10px;
+      }
+    }
+  }
+  .nav-bar {
+    width: 100%;
+    display: inline-block;
+  }
+  .nav-ul {
+    position: relative;
+  }
+  .cart {
+    font-size: 10px;
+    background-color: #476a2e;
+    position: absolute;
+    right: 0;
+    top: -8px;
+  }
+  .cocktailLogo {
+    font-size: 4vh;
+  }
+  .drink-logo {
+    text-align: center;
+  }
+  .menu-bar {
+    margin: auto;
+    width: 80%;
+    font-size: 10px;
+  }
 }
