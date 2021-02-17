@@ -5,11 +5,12 @@ import { FaRProject } from 'react-icons/fa'
  import Empty from '../components/empty'
    let cartPage= []
    let otherCart = new Set(cartPage) 
-   console.log(otherCart);
  
-const Cart = ({state,display,  cartItems })=>{
-
  
+const Cart = ({state,display,cartItems })=>{
+console.log(cartItems);
+ let y = [new Set(cartPage)]
+ console.log(y);
   //  let lastTotal = sum.reduce((total,item)=>total+item,0)
  let x = new Date().getTime()
 
@@ -23,7 +24,7 @@ cartPage.push(item);
    })
   
  })
-console.log(cartPage);
+ console.log(cartPage);
  return ( <section>
      <div className='cart-container' >
  
