@@ -178,7 +178,7 @@ strDrinkThumb: "https://www.thecocktaildb.com/images/media/drink/rwsyyu148338818
 strIngredient1: "Dark rum",
 strIngredient2: "Kahlua",
 strIngredient3: "Egg white",
- 
+ price: 11.23
 },
 {
 idDrink: "17228",
