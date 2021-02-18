@@ -4,7 +4,7 @@ import React from 'react'
 import {useState} from 'react'
 import { FaRoad } from 'react-icons/fa'
  
-const Home = ({ state,setCartItems, setDisplay})=>{
+const Home = ({ state,getCart, setDisplay})=>{
  let idd = new Date().getTime()
     return <>
     <div key={idd} className="main-content">
@@ -29,10 +29,9 @@ const Home = ({ state,setCartItems, setDisplay})=>{
        <div className="price">
        <span  className='para para-price' > {item.price} $ </span>
        <span onClick={()=>{
-         console.log(item.price);
- setCartItems(cartItems=>{
-   return [...cartItems, id]
- })
+      
+ getCart(id)
+ 
  setDisplay(true)
        }} type='button' className='para para-btn' ><CgAddR/></span>
        </div>

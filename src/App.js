@@ -13,10 +13,13 @@ import SingleDrink from './components/singleDrink'
 const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a'
 const initialInfo = {
 loading:false,
-items:[],
+items:drinks,
 amount:1,
- 
 }
+
+// const getPrice= (id) =>{
+//     let price = Number(id) /1000;
+//     return price.toFixed(2) 
 const reducer =  (state,action)=>{
     if(action.type=== 'DATA'){
         return {...state, items:action.payload}
@@ -25,21 +28,35 @@ const reducer =  (state,action)=>{
 function App() {
 const[display, setDisplay] =useState(false)
 const [state, dispatch] = useReducer(reducer, initialInfo)
+ const [cart, setCart] = useState([])
+ 
 const [cartItems, setCartItems] = useState([])
  const getData = async()=>{
      const response = await  fetch(URL)
      const data = await response.json()
-     dispatch({type:"DATA",payload:data.drinks})
+    
+     
  }
-
+const getCart = (id)=>{
+      state.items.filter(item=>{
+         if(item.idDrink ===id){
+            setCart([...cart,item])
+         }
+          
+      return item
+    })
+ 
+}
+ console.log(cart);
+ 
  useEffect(()=>{
      getData()
  },[])
 return  <Router>   
-<Nav/>
+<Nav cart={cart}/>
 <Switch>
 <Route exact path='/'>
-<Home setCartItems = {setCartItems} setDisplay={setDisplay}    state = {state} />
+<Home  setCart={setCart} setDisplay={setDisplay} getCart={getCart}   state = {state} />
 </Route>
 <Route path='/about'>
 <About/>
@@ -48,7 +65,10 @@ return  <Router>
 <Contact/>
 </Route>
 <Route path='/cart'>
-<Cart cartItems={cartItems} state={state}  display={display}/>
+   
+      <Cart   display={display} cart ={cart}/>
+ 
+
 </Route>
 <Route path='/details'>
 <SingleDrink state={state}/>
