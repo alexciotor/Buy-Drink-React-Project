@@ -3,52 +3,63 @@ import {useState, useEffect,useReducer} from 'react'
 import { CgLogOff } from 'react-icons/cg'
 import { FaRProject } from 'react-icons/fa'
  import Empty from '../components/empty'
-   let cartPage= []
-   let otherCart = new Set(cartPage) 
+   
+const Cart = ({display,cart  })=>{
+  const [newCart, setNewCart] = useState([...new Set(cart)])
  
+let sum = newCart.map(item=>{
+  return item.price
+})
  
-const Cart = ({state,display,cartItems })=>{
-console.log(cartItems);
- let y = [new Set(cartPage)]
- console.log(y);
-  //  let lastTotal = sum.reduce((total,item)=>total+item,0)
- let x = new Date().getTime()
 
-  state.items.forEach(item=>{
-   cartItems.forEach(item2=>{
-     if(item.idDrink == item2){
-      
-cartPage.push(item);
-     }
-  
-   })
-  
- })
- console.log(cartPage);
- return ( <section>
-     <div className='cart-container' >
+   let lastTotal = sum.reduce((total,item)=>total+item,0)
+
+  return (  
+   <section className='section-cart' >
+
+  <div className='cart-container' >
+{newCart.map(item=>{
+  const {strDrink:name,idDrink:id,strCategory:cat,strAlcoholic:type, strGlass:glass, strInstructions:instruct,strDrinkThumb:img,strIngredient1:ingr1,strIngredient2:ingr2,strIngredient3:ingr3,strIngredient4:ingr4,price}=item
  
- <div className="article-content">
+  return (
+    <div className="article-content">
 <article   className='cart-article' >
 <div className="left">
- <div className="img-container">
- <img src= '' alt='' />
- </div>
- <div className="content-container">
- <h4></h4>
- <p></p>
- <p> </p>
- </div>
- </div>
- </article>
+<div className="img-container">
+<img src= {img} alt='' />
 </div>
-     
- </div>
-  <div className="total-container">
- <h4>{display ? `total : ${x} $` : <Empty/> } </h4>
-  {display && <button className="cart-bt">Submit Order</button>}
- </div> 
- </section>
+<div className="content-container">
+<h4>{name}</h4>
+<p>{glass}</p>
+ <p>{type}</p>
+<p>{price} $</p>
+ 
+</div>
+
+</div>
+
+
+</article>
+
+</div>
+  )
+  
+})}
+
+  
+</div>
+   
+<div className="total-container">
+<h4>{display ? `total : ${lastTotal}  $` : <Empty/> } </h4>
+{display && <button className="cart-bt">Submit Order</button>}
+</div> 
+</section>
+ 
+
+
+ 
+ 
+ 
 )
 
    
