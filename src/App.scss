@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+.form-container{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-top: 10vh;
+}
 .nav-bar {
   background-color: #fff;
   display: flex;
@@ -359,6 +365,7 @@ p {
   margin-top: 2vh;
 }
 
+ 
 
 @media only screen and (min-width: 761px) and (max-width: 1062px) {
   .main-content {
@@ -421,6 +428,7 @@ p {
         font-size: 10px;
         padding: 5px 10px;
       }
+  
     }
   }
   .nav-bar {
