@@ -5,6 +5,13 @@
           box-sizing: border-box;
 }
 
+.form-container {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-top: 10vh;
+}
+
 .nav-bar {
   background-color: #fff;
   display: -webkit-box;
